@@ -50,14 +50,14 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
 ```
 
 ### Initialize Video Capture
-Video capture is initialized using OpenCV. You can either use a webcam or a video file stream:
+Video capture is initialized using OpenCV. You can either use a webcam or a video file stream. Here you need to put your video in the ("Video_Path") section:
 
 ```python
 import cv2
 import cvzone
 
 # For webcam, use cv2.VideoCapture(0) and adjust the index if necessary
-cap = cv2.VideoCapture("rtsp://191.168.8.32:554/stream1")  # RTSP stream URL
+cap = cv2.VideoCapture("Video_Path")  # RTSP stream URL
 cap.set(3, 1280)  # Set frame width
 cap.set(4, 720)  # Set frame height
 ```
