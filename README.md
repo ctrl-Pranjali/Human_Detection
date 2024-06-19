@@ -49,15 +49,15 @@ classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "trai
 
 ```
 
-### Initialize Video Capture
-Video capture is initialized using OpenCV. You can either use a webcam or a video file stream. Here you need to put your video in the ("Video_Path") section:
+### Initialize Image Capture
+Image capture is initialized using OpenCV. Here you need to put your Image datset in the ("/content/0.png") section:
 
 ```python
 import cv2
 import cvzone
 
 # For webcam, use cv2.VideoCapture(0) and adjust the index if necessary
-cap = cv2.VideoCapture("Video_Path")  # RTSP stream URL
+cap = cv2.VideoCapture("/content/0.png")  # RTSP stream URL
 cap.set(3, 1280)  # Set frame width
 cap.set(4, 720)  # Set frame height
 ```
@@ -96,12 +96,13 @@ while True:
     prev_frame_time = new_frame_time
     print(f"FPS: {fps}")
 
-    # Display the image
-    cv2.imshow("Image", img)
+    # Display the processed image inline
+    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    plt.axis('off')
+    plt.show()
 
-    # Press 'q' to exit
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+    # Break after displaying the image once
+    break
 
 # Release capture and destroy all windows
 cap.release()
@@ -114,7 +115,6 @@ cv2.destroyAllWindows()
 - Bounding Box and Annotation: If a "person" is detected, draws a bounding box and confidence score.
 - FPS Calculation: Computes and prints the frames per second (FPS) to monitor performance.
 - Display: Shows the annotated frame in a window.
-- Exit Condition: Press 'q' to exit the loop and close the display window.
 
 ##
 
